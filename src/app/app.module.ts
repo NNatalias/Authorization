@@ -19,12 +19,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {HttpClientModule} from '@angular/common/http';
 import { AccountPageComponent } from './account-page/account-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    AccountPageComponent
+    AccountPageComponent,
+    NotFoundComponent
   ],
   imports: [
     HttpClientModule,

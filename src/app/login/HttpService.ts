@@ -8,7 +8,7 @@ export class HttpService {
 
     postData( user: User ) {
 
-        const body = {login: user.login, password: user.password};
+        const body = {email: user.email, password: user.password};
         return this.http.post('http://phpservice/loginusers.php', body);
     }
 }
