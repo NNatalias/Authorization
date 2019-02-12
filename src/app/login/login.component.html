@@ -1,0 +1,40 @@
+<div class="header">
+</div>
+<div class="PageContent" style="display: flex; justify-content: space-around">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title >Авторизация</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form #LoginForm="ngForm">
+        <div fxLayout="row" fxLayout.xs="column" class="data">
+          <mat-form-field appearance="outline">
+            <mat-label>Логин</mat-label>
+            <input matInput name="email" [(ngModel)]= "user.email" [formControl]="email" placeholder="example@mail.com" required>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error>
+              Введите корректный Email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" >
+            <mat-label>Пароль</mat-label>
+            <input matInput name="password" [(ngModel)]="user.password" pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" [type]="hide ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error>
+              Введите пароль
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="button" fxLayoutAlign="center">
+          <button mat-raised-button (click)="submit(user)" color="primary" [disabled]="LoginForm.invalid">Войти</button>
+        </div>
+        <mat-card-actions>
+          <div *ngIf="errorData" class="error">Не правильный Логин или Пароль</div>
+          <div *ngIf="errorConnection" class="error">Ошибка подключения, повторите попытку позже</div>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <app-registration></app-registration>
+</div>
+

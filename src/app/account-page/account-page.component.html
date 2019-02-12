@@ -1,0 +1,27 @@
+<div class="header">
+    <mat-grid-list cols="10" rowHeight="60px">
+    <mat-grid-tile [colspan]="3">Добро пожаловать, {{userAcc.firstName}}!</mat-grid-tile>
+        <mat-grid-tile [colspan]="6"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1" > <button mat-icon-button ><a routerLink="/login" (click)="this.globalService.errorLogin = true;">
+            <mat-icon style="font-size: 300% ; margin: 9px">exit_to_app</mat-icon></a>
+        </button>
+            </mat-grid-tile>
+    </mat-grid-list>
+ </div>
+<div class="AccContent">
+    <mat-card class="UserCard">
+        <mat-card-header>
+        <mat-card-title>Ваши персональные данные</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Имя: {{userAcc.firstName}}</p>
+            <p>Фамилия: {{userAcc.lastName}}</p>
+            <p>Номер телефона: {{userAcc.phone}}</p>
+            <p>Страна: {{userAcc.country}}</p>
+            <p>Город: {{userAcc.city}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+</div>

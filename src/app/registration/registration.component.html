@@ -1,0 +1,84 @@
+<mat-card class="registration-card">
+  <mat-card-header>
+    <mat-card-title>Создание учетной записи</mat-card-title>
+    <mat-card-subtitle>* обязательное поле</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form #RegistrationForm="ngForm">
+      <div fxLayout="row" fxLayout.xs="column" class="data">
+        <mat-form-field appearance="outline">
+          <mat-label>Имя</mat-label>
+          <input matInput name="firstName" [(ngModel)]= "userNew.firstName" pattern="[А-Яа-яЁё]+$" required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error>
+            Введите имя
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Фамилия</mat-label>
+          <input matInput name="lastName" [(ngModel)]= "userNew.lastName" pattern="[А-Яа-яЁё]+$" required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error>
+            Введите фамилию
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="CountryForm" appearance="outline">
+          <mat-label>Страна</mat-label>
+          <input matInput type="text" [(ngModel)]="userNew.country" formControlName="CountryGroup" required [matAutocomplete]="autoGroup">
+          <mat-autocomplete #autoGroup="matAutocomplete">
+            <mat-optgroup *ngFor="let group of CountryGroupOptions | async" [label]="group.letter">
+              <mat-option *ngFor="let name of group.names" [value]="name">
+                {{name}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-autocomplete>
+          <mat-icon matSuffix>public</mat-icon>
+          <mat-error>
+            Выберете страну
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Город</mat-label>
+          <input matInput name="city" [(ngModel)]= "userNew.city" pattern="[А-Яа-яЁё\s]+$" required>
+          <mat-icon matSuffix>place</mat-icon>
+          <mat-error>
+            Введите город
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Телефон</mat-label>
+          <input matInput name="telephone" type="tel" [(ngModel)]= "userNew.phone" pattern="[0-9]{10}" placeholder="(___) ___-____" required>
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error>
+            Введите корректный телефон
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput name="email" [(ngModel)]= "userNew.email" pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" placeholder="example@mail.com" required>
+          <mat-icon matSuffix>alternate_email</mat-icon>
+          <mat-error>
+            Введите корректный Email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Пароль</mat-label>
+          <input matInput name="password" [(ngModel)]="userNew.password" [type]="hide ? 'password' : 'text'" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error>
+            Введите пароль
+          </mat-error>
+        </mat-form-field>
+        <mat-card-subtitle>Ваш Email будет использоваться как логин для Вашей авторизации</mat-card-subtitle>
+      </div>
+      <div class="button" >
+        <button mat-raised-button (click)="submit(userNew)" [disabled]="RegistrationForm.invalid" >Зарегестрироваться</button>
+      </div>
+      <mat-card-actions>
+        <div *ngIf="errorConnection" class="error">Пользователь с таким email адресом уже существует или ошибка подключения, повторите попытку позже</div>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
