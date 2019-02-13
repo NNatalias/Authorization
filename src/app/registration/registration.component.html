@@ -77,7 +77,7 @@
         <button mat-raised-button (click)="submit(userNew)" [disabled]="RegistrationForm.invalid" >Зарегестрироваться</button>
       </div>
       <mat-card-actions>
-        <div *ngIf="errorConnection" class="error">Пользователь с таким email адресом уже существует или ошибка подключения, повторите попытку позже</div>
+        <div *ngIf="errorConnection" class="error">Пользователь с таким email адресом уже существует или ошибка соединения, повторите попытку позже</div>
       </mat-card-actions>
     </form>
   </mat-card-content>

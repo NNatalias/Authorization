@@ -14,9 +14,6 @@
     align-items: baseline;
     width: 50%;
 }
-mat-card-title{
-
-}
 mat-grid-tile {
     color: white;
     font-size: x-large;
@@ -29,4 +26,8 @@ p{
 a{
     color: white;
     text-decoration: none;
+}
+.error{
+    color: #B71C1C;
+
 }

@@ -21,7 +21,8 @@
             <p>Город: {{userAcc.city}}</p>
         </mat-card-content>
         <mat-card-actions>
-
+            <button mat-raised-button (click)="delete(userAcc)" >Удалить аккаунт</button>
+            <div *ngIf="errorConnection" class="error">Ошибка соединения, повторите попытку позже</div>
         </mat-card-actions>
     </mat-card>
 </div>

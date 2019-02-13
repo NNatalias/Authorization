@@ -99,16 +99,12 @@ export class RegistrationComponent implements OnInit {
 
     errorConnection = false;
     hide = true;
-    receivedUser: UserNew;
     done = false;
     userNew: UserNew = new UserNew();
-
     submit(userNew: UserNew) {
-        console.log(this.userNew);
         this.httpService.postData(userNew)
             .subscribe(
-                (data: UserNew) => {
-                    this.receivedUser = data;
+                (data: any) => {
                     this.done = true;
                     this.openSnackBar();
                 },
