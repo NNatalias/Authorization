@@ -107,7 +107,7 @@ export class RegistrationComponent implements OnInit {
                 (data: any) => {
                     this.done = true;
                     this.openSnackBar();
-                    window.location.reload();
+                
                 },
                 error => {
                     this.errorConnection = true;
