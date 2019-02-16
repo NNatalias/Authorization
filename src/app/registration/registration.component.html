@@ -8,7 +8,7 @@
       <div fxLayout="row" fxLayout.xs="column" class="data">
         <mat-form-field appearance="outline">
           <mat-label>Имя</mat-label>
-          <input matInput name="firstName" [(ngModel)]= "userNew.firstName" pattern="[А-Яа-яЁё]+$" required>
+          <input matInput name="firstName" [(ngModel)]= "userNew.firstName" pattern="[А-Яа-яЁёa-zA-Z]+$" required>
           <mat-icon matSuffix>person</mat-icon>
           <mat-error>
             Введите имя
@@ -16,7 +16,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Фамилия</mat-label>
-          <input matInput name="lastName" [(ngModel)]= "userNew.lastName" pattern="[А-Яа-яЁё]+$" required>
+          <input matInput name="lastName" [(ngModel)]= "userNew.lastName" pattern="[А-Яа-яЁёa-zA-Z]+$" required>
           <mat-icon matSuffix>person</mat-icon>
           <mat-error>
             Введите фамилию
@@ -39,7 +39,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Город</mat-label>
-          <input matInput name="city" [(ngModel)]= "userNew.city" pattern="[А-Яа-яЁё\s]+$" required>
+          <input matInput name="city" [(ngModel)]= "userNew.city" pattern="[А-Яа-яЁёa-zA-Z\s]+$" required>
           <mat-icon matSuffix>place</mat-icon>
           <mat-error>
             Введите город
@@ -48,7 +48,7 @@
         <br>
         <mat-form-field appearance="outline">
           <mat-label>Телефон</mat-label>
-          <input matInput name="telephone" type="tel" [(ngModel)]= "userNew.phone" pattern="[0-9]{10}" placeholder="(___) ___-____" required>
+          <input matInput name="telephone" type="tel" [(ngModel)]= "userNew.phone" pattern="[0-9]{10,12}" placeholder="(___) ___-____" required>
           <mat-icon matSuffix>phone</mat-icon>
           <mat-error>
             Введите корректный телефон
@@ -57,7 +57,7 @@
         <br>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput name="email" [(ngModel)]= "userNew.email" pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" placeholder="example@mail.com" required>
+          <input matInput name="email" [(ngModel)]= "userNew.email" pattern="[a-zA-Z_0-9]+@[a-zA-Z]+?\.[a-zA-Z]{2,3}" placeholder="example@mail.com" required>
           <mat-icon matSuffix>alternate_email</mat-icon>
           <mat-error>
             Введите корректный Email
@@ -65,16 +65,16 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Пароль</mat-label>
-          <input matInput name="password" [(ngModel)]="userNew.password" [type]="hide ? 'password' : 'text'" required>
+          <input matInput name="password" [(ngModel)]="userNew.password" pattern="^[a-z0-9_-]{4,18}$" [type]="hide ? 'password' : 'text'" required>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           <mat-error>
-            Введите пароль
+            Пароль должен состоять минимум из 4 латинских букв или цифр
           </mat-error>
         </mat-form-field>
-        <mat-card-subtitle>Ваш Email будет использоваться как логин для Вашей авторизации</mat-card-subtitle>
+        <div style="margin-top: 1%"><mat-card-subtitle>Ваш Email будет использоваться как логин для Вашей авторизации</mat-card-subtitle></div>
       </div>
       <div class="button" >
-        <button mat-raised-button (click)="submit(userNew)" [disabled]="RegistrationForm.invalid" >Зарегестрироваться</button>
+        <button mat-raised-button (click)="submit(userNew)" color="primary" [disabled]="RegistrationForm.invalid" >Зарегестрироваться</button>
       </div>
       <mat-card-actions>
         <div *ngIf="errorConnection" class="error">Пользователь с таким email адресом уже существует или ошибка соединения, повторите попытку позже</div>

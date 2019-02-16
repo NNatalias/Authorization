@@ -24,7 +24,7 @@ if(isset($userNew['email']) && isset($userNew['password'])&& isset($userNew['fir
     or die("Ошибка" . mysqli_error($link));
 }
 else {
-    die("Err" . mysqli_error($link));
+    die("Error" . mysqli_error($link));
 }
 mysqli_close($link);
 ?>

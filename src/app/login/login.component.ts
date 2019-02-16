@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {User} from './login';
-import {HttpService} from './HttpService';
+import {HttpServiceLogin} from './HttpServiceLogin';
 import {GlobalService} from '../global.service';
 import {Router} from '@angular/router';
 
@@ -9,10 +9,10 @@ import {Router} from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [HttpService]
+  providers: [HttpServiceLogin]
 })
 export class LoginComponent  {
-    constructor(private httpService: HttpService, public globalService: GlobalService, public router: Router) {}
+    constructor(private httpService: HttpServiceLogin, public globalService: GlobalService, public router: Router) {}
     errorData = false;
     errorConnection = false;
     hide = true;
@@ -24,15 +24,15 @@ export class LoginComponent  {
               (data: any) => {
                   this.globalService.userAcc = data;
                   if (this.globalService.userAcc.id > 0 ) {
-                      this.globalService.errorLogin = false;
+                      this.globalService.errorLoginRouting = false;
                       this.router.navigate(['account']);
                   } else {
-                      this.globalService.errorLogin = true;
+                      this.globalService.errorLoginRouting = true;
                       this.errorData = true;
                   }
               },
               error => {
-                  this.globalService.errorLogin = true;
+                  this.globalService.errorLoginRouting = true;
                   this.errorConnection = true;
                   console.log(error);
               }

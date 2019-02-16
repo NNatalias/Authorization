@@ -2,7 +2,7 @@
     <mat-grid-list cols="10" rowHeight="60px">
     <mat-grid-tile [colspan]="3">Добро пожаловать, {{userAcc.firstName}}!</mat-grid-tile>
         <mat-grid-tile [colspan]="6"></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" > <button mat-icon-button ><a routerLink="/login" (click)="this.globalService.errorLogin = true;">
+        <mat-grid-tile [colspan]="1" > <button mat-icon-button ><a routerLink="/login" (click)="this.globalService.errorLoginRouting = true;">
             <mat-icon style="font-size: 300% ; margin: 9px">exit_to_app</mat-icon></a>
         </button>
             </mat-grid-tile>

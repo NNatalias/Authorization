@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalService {
   userAcc: UserAcc;
-public errorLogin = true;
+public errorLoginRouting = true;
   constructor() { }
 }
 export class UserAcc {

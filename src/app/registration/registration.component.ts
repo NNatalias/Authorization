@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 import {UserNew} from './regform';
-import {HttpService} from './HttpService';
+import {HttpServiceRegForm} from './HttpServiceRegForm';
 import {MatSnackBar} from '@angular/material';
 
 export interface CountryGroup {
@@ -21,7 +21,7 @@ export const _filter = (opt: string[], value: string): string[] => {
     selector: 'app-registration',
     templateUrl: './registration.component.html',
     styleUrls: ['./registration.component.css'],
-    providers: [HttpService]
+    providers: [HttpServiceRegForm]
 })
 export class RegistrationComponent implements OnInit {
     CountryForm: FormGroup = this.fb.group({
@@ -93,7 +93,7 @@ export class RegistrationComponent implements OnInit {
     CountryGroupOptions: Observable<CountryGroup[]>;
 
     constructor(private fb: FormBuilder,
-                private httpService: HttpService,
+                private httpService: HttpServiceRegForm,
                 public snackBar: MatSnackBar) {
     }
 
@@ -102,11 +102,12 @@ export class RegistrationComponent implements OnInit {
     done = false;
     userNew: UserNew = new UserNew();
     submit(userNew: UserNew) {
-        this.httpService.postData(userNew)
+        this.httpService.postUserData(userNew)
             .subscribe(
                 (data: any) => {
                     this.done = true;
                     this.openSnackBar();
+                    window.location.reload();
                 },
                 error => {
                     this.errorConnection = true;

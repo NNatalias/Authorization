@@ -16,7 +16,7 @@ if(isset($user['email']) && isset($user['password'])) {
 
     $query = ("SELECT * FROM  " . $db . " WHERE email='$email' AND password='$password'  ");
     $result = mysqli_query($link, $query)
-    or die("Ошибка " . mysqli_error($link));
+    or die("Ошибка" . mysqli_error($link));
     $user = $result->fetch_assoc();
     if($user != 0){
         echo json_encode($user);
@@ -26,7 +26,7 @@ if(isset($user['email']) && isset($user['password'])) {
     }
 }
 else {
-    die("Err" . mysqli_error($link));
+    die("Error" . mysqli_error($link));
 }
 mysqli_close($link);
 ?>

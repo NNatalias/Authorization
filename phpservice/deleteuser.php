@@ -14,10 +14,10 @@ if(isset($userAcc['email'])) {
     $email = $userAcc['email'];
     $query = ("DELETE FROM  " . $db . " WHERE email='$email' ");
     $result = mysqli_query($link, $query)
-    or die("Ошибка " . mysqli_error($link));
+    or die("Ошибка" . mysqli_error($link));
 }
 else {
-    die("Err" . mysqli_error($link));
+    die("Error" . mysqli_error($link));
 }
 mysqli_close($link);
 ?>
