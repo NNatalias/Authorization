@@ -18,7 +18,7 @@ export class LoginComponent  {
     hide = true;
     email = new FormControl('', [Validators.required, Validators.email]);
     user: User = new User();
-  submit(user) {
+  submit(user: User) {
       this.httpService.postData(user)
           .subscribe(
               (data: any) => {
