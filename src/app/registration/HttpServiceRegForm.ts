@@ -3,8 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {UserNew} from './regform';
 @Injectable()
 export class HttpServiceRegForm {
-    constructor(private http: HttpClient) { }
-  //отправка полученных данных на сервер для добавления в бд
+    constructor(private http: HttpClient) { 
     postUserData(userNew: UserNew) {
         const body = {firstName: userNew.firstName,
             lastName: userNew.lastName,
