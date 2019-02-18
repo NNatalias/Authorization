@@ -1,7 +1,7 @@
 export class UserNew {
     firstName: string;
     lastName: string;
-    phone: number;
+    phone: string;
     email: string;
     password: string;
     country: string;
