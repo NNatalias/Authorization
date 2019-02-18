@@ -8,6 +8,6 @@ export class HttpServiceLogin {
     postData( user) {
 
         const body = {email: user.email, password: user.password};
-        return this.http.post('http://1435247.mysitesi.web.hosting-test.net/phpservice/loginusers.php', body);
+        return this.http.post('http://mysitesite.icu/phpservice/loginusers.php', body);
     }
 }
