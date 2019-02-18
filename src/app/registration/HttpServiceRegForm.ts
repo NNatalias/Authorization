@@ -12,6 +12,6 @@ export class HttpServiceRegForm {
             password: userNew.password,
             country: userNew.country,
             city: userNew.city};
-        return this.http.post('http://1435247.mysitesi.web.hosting-test.net/phpservice/addusers.php', body);
+        return this.http.post('http://mysitesite.icu/phpservice/addusers.php', body);
     }
 }
