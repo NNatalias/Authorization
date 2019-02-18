@@ -8,6 +8,6 @@ export class HttpServiceAcc {
 
     deleteData( userAcc ) {
         const body = {email: userAcc.email};
-        return this.http.post('http://1435247.mysitesi.web.hosting-test.net/phpservice/deleteuser.php', body);
+        return this.http.post('http://mysitesite.icu/phpservice/deleteuser.php', body);
     }
 }
