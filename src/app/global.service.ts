@@ -11,7 +11,7 @@ public errorLoginRouting = true;
 export class UserAcc {
   firstName: string;
   lastName: string;
-  phone: number;
+  phone: string;
   email: string;
   country: string;
   city: string;
